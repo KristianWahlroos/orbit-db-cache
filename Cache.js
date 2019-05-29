@@ -44,18 +44,7 @@ class Cache {
     })
   }
 
-  load(directory, dbAddress, store) {
-    logger.debug('load, database:', dbAddress.toString())
-
-    return this;
-
-    // const dbPath = path.join(dbAddress.root, dbAddress.path)
-    // const dataPath = path.join(directory, dbPath)
-
-    // const cache = new Cache(store, dataPath)
-    // return cache
-  }
-
+  load() {} // noop
   close() { } // noop
   destroy() { } // noop
 
