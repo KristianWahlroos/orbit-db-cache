@@ -13,6 +13,8 @@ class Cache {
     this._store = store
   }
 
+  async close () { await this._store.close() }
+
   async get (key) {
     return new Promise((resolve, reject) => {
       this._store.get(key, (err, value) => {
@@ -39,13 +41,13 @@ class Cache {
             return reject(err)
           }
         }
+        logger.debug(`cache: Set ${key} to ${value}`)
         resolve()
       })
     })
   }
 
   load() {} // noop
-  close() { } // noop
   destroy() { } // noop
 
   // Remove a value and key from the cache
